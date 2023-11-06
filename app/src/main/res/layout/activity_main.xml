@@ -4,15 +4,257 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/CustomColor1"
     tools:context=".MainActivity">
-
     <TextView
+        android:id="@+id/titulo1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Conversiones!"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toTopOf="@id/titulo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+<LinearLayout
+    android:id="@+id/titulo"
+    android:gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toTopOf="@id/line2"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/titulo1"
+    >
 
+    <TextView
+        android:id="@+id/sub1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grados!"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="30sp"
+       />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        app:layout_constraintTop_toBottomOf="@id/text1"
+        app:layout_constraintBottom_toTopOf="@id/Contador"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:lottie_rawRes="@raw/bola"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+
+        ></com.airbnb.lottie.LottieAnimationView>
+
+</LinearLayout>
+    <LinearLayout
+        android:id="@+id/line2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/line3"
+        app:layout_constraintTop_toBottomOf="@id/titulo"
+        android:background="@color/md_theme_dark_tertiary"
+        >
+
+
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:hint="Introduce un valor"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:maxLength="10"
+            android:inputType="number"
+        >
+
+        </EditText>
+        <RadioGroup
+            android:id="@+id/line1"
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/md_theme_dark_tertiary"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit">
+
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Fahrenheit" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Celsius" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Kelvin" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="Aceptar">
+
+        </Button>
+
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/line3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/line4"
+        app:layout_constraintTop_toBottomOf="@id/line2"
+        android:visibility="invisible"
+        android:background="@color/md_theme_dark_tertiary"
+        >
+
+
+       <TextView
+           android:textColor="@color/black"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Fahrenheit:"
+           android:textStyle="bold"
+           android:textSize="30sp"
+
+>
+
+
+       </TextView>
+        <TextView
+            android:id="@+id/fahvalor"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fahrenheit"
+            android:textStyle="italic"
+            android:textSize="30sp"
+
+            >
+
+
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/line5"
+        app:layout_constraintTop_toBottomOf="@id/line3"
+        android:visibility="invisible"
+        android:background="@color/md_theme_dark_tertiary"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kelvin:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="30sp"
+
+            >
+
+
+        </TextView>
+        <TextView
+            android:id="@+id/kelvalor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kelvin"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            android:textSize="30sp"
+
+            >
+
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/line5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line4"
+        android:visibility="invisible"
+        android:background="@color/md_theme_dark_tertiary"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Celsius:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="30sp"
+
+            >
+
+
+        </TextView>
+        <TextView
+            android:id="@+id/celval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Celsius"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            android:textSize="30sp"
+
+            >
+
+
+        </TextView>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
